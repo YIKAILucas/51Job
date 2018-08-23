@@ -11,8 +11,8 @@ app = Flask(__name__)
 
 
 def test_pp():
-    set = db_utils.mongo.get_collection('菜谱', '首页', '193.112.101.16')
-    l = db_utils.mongo.get_list_doc(set)
+    set = db_utils.mongo_util.get_collection('菜谱', '首页', '193.112.101.16')
+    l = db_utils.mongo_util.get_list_doc(set)
     print(l)
 
 
@@ -23,8 +23,8 @@ def default(obj):
 
 @app.route('/home')
 def home():
-    set = db_utils.mongo.get_collection('菜谱', '首页', '193.112.101.16')
-    l = db_utils.mongo.get_list_doc(set)
+    set = db_utils.mongo_util.get_collection('菜谱', '首页', '193.112.101.16')
+    l = db_utils.mongo_util.get_list_doc(set)
 
     lis_return = []
     for t in l:
@@ -58,4 +58,4 @@ def init_db():
 if __name__ == '__main__':
     print(os.system('ifconfig'))
     app.run(host='0.0.0.0', port=8090)
-    db_utils.mongo.get_collection()
+    db_utils.mongo_util.get_collection()

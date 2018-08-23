@@ -1,4 +1,4 @@
-import db_utils.mongo as mongoutil
+import db_utils.mongo_util as mongoutil
 
 if __name__ == '__main__':
     c = mongoutil.get_collection()
