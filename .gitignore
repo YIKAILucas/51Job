@@ -1,0 +1,9 @@
+/.idea
+*.pyc
+crawel_utils/.pytest_cache/*
+*.py[cod]
+*.so
+*.egg
+*.egg-info
+dist
+build
