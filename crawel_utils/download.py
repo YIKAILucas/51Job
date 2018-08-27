@@ -104,6 +104,12 @@ class Download(object):
                 pass
         return result
 
+    def parse_detail(self, html):
+        h = etree.HTML(html)
+        el = h.xpath('.//div[@class="dw_wp"]/div[@id="resultList"]/div[@class="el"]')
+        result = []
+
+
     def persistence(self, lis):
         if lis is not None and len(lis) != 0:
             self.col_home.insert_many(lis)
