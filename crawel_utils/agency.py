@@ -77,28 +77,28 @@ class Agency(object):
             r = redis_util.get_redis()
             print(r)
             set_succ.insert_one({'ip': ip, 'port': port})
-            # r.hset(self.key, ip, port)
+            r.hset('hash', ip, port)
             self.key += 1
             return ip, port
 
 
-def test_set_ip(page):
-    agency = Agency()
-    ip_list = agency.get_ip_list(page)
-    docs = []
-    for i in ip_list:
-        ip, port = i.split(':')
-        docs.append({'ip': ip, 'port': port})
-    print(docs)
-    set = mongo_util.get_collection('ip池', '未校验', host='193.112.101.16')
-    set.insert_many(docs)
+# def test_set_ip(page=1):
+#     agency = Agency()
+#     ip_list = agency.get_ip_list(page)
+#     docs = []
+#     for i in ip_list:
+#         ip, port = i.split(':')
+#         docs.append({'ip': ip, 'port': port})
+#     print(docs)
+#     set = mongo_util.get_collection('ip池', '未校验', host='193.112.101.16')
+#     set.insert_many(docs)
 
 
 if __name__ == '__main__':
     agency = Agency()
 
-    for i in range(500):
-        agency.test_ip()
+    # for i in range(500):
+    agency.test_ip()
     # for i in range(1,100):
     #     test_set_ip(page='inha/'+str(i)+'/')
     #     time.sleep(1)
